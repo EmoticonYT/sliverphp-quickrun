@@ -51,6 +51,8 @@ cd sliverphp
 
 curl -LO "https://raw.githubusercontent.com/EmoticonYT/resources/refs/heads/main/sliverphp/sliver.php"
 
+killall php ideviceactivation
+
 php -S localhost:43523 -t . sliver.php &
 
 wait 5

@@ -53,6 +53,16 @@ curl -LO "https://raw.githubusercontent.com/EmoticonYT/resources/refs/heads/main
 
 killall php ideviceactivation
 
+PRODUCT_TYPE=$(ideviceinfo -k ProductType 2>/dev/null)
+PRODUCT_VERSION=$(ideviceinfo -k ProductVersion 2>/dev/null)
+
+if [ "$PRODUCT_TYPE" != "iPad2,1" ]; then
+    if [ -z "$PRODUCT_VERSION" ] || [ "$(echo "$PRODUCT_VERSION >= 7.1" | bc)" -eq 1 ]; then
+        echo "Error: Device ($PRODUCT_TYPE) on iOS $PRODUCT_VERSION is unsupported."
+        exit 1
+    fi
+fi
+
 php -S localhost:43523 -t . sliver.php &
 
 pause 2

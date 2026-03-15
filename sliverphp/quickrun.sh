@@ -49,7 +49,8 @@ mkdir -p sliverphp
 
 cd sliverphp
 
-curl -LO "https://raw.githubusercontent.com/EmoticonYT/resources/refs/heads/main/sliverphp/sliver.php" &
+echo "Downloading SliverPHP..."
+curl -LO "https://raw.githubusercontent.com/EmoticonYT/resources/refs/heads/main/sliverphp/sliver.php" 
 
 killall php ideviceactivation &
 

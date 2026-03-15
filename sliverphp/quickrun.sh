@@ -52,6 +52,8 @@ cd sliverphp
 echo "Downloading SliverPHP..."
 curl -LO "https://raw.githubusercontent.com/EmoticonYT/resources/refs/heads/main/sliverphp/sliver.php" 
 
+read -p "Please connect your idevice, and press any key to continue."
+
 killall php ideviceactivation &
 
 PRODUCT_TYPE=$(ideviceinfo -k ProductType 2>/dev/null)
@@ -65,8 +67,6 @@ if [ "$PRODUCT_TYPE" != "iPad2,1" ]; then
 fi
 
 php -S localhost:43523 -t . sliver.php &
-
-pause 2
 
 ideviceactivation activate --service http://localhost:43523
 
